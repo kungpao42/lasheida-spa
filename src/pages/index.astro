@@ -1,0 +1,205 @@
+---
+import Base from '../layouts/Base.astro';
+import { business as b, threading, facials, waxing } from '../data/services';
+---
+<Base
+  title="La Sheida Spa | Facials, Threading & Waxing in Leesburg, VA"
+  description="Licensed estheticians in Leesburg, VA. Custom facials, eyebrow threading & tinting, and full-body waxing inside Salon Lofts. Book online or call today."
+>
+  <div class="contactbar">
+    <div class="wrap contactbar__in">
+      <p>{b.building}</p>
+      <p>
+        <a href={b.phoneHref}>Call {b.phone}</a>
+        <a href={b.textHref}>Text {b.text}</a>
+      </p>
+    </div>
+  </div>
+
+  <header class="site-head">
+    <div class="wrap site-head__in">
+      <a class="wordmark" href="/" aria-label="La Sheida Spa, home">
+        La Sheida <span>Spa</span>
+      </a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="/eyebrow-threading/">Threading</a></li>
+          <li><a href="/facials/">Facials</a></li>
+          <li><a href="/waxing/">Waxing</a></li>
+          <li><a href="/services/">Prices</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--small" href={b.bookUrl}>Book</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO: the thread is the one memorable element -->
+    <section class="hero">
+      <svg class="thread" viewBox="0 0 860 900" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
+        <path pathLength="1000" d="M0 840 C 140 840, 215 700, 230 520 C 245 300, 330 138, 471 136 C 612 134, 700 230, 752 330 C 790 404, 830 470, 880 505" />
+      </svg>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <h1>Eyebrow threading, facials &amp; waxing in Leesburg, Virginia</h1>
+          <p class="lede">
+            One-on-one appointments with Sheida Jowkar, who has been threading brows for
+            more than 35 years. A private studio, unhurried care, and brows that look like yours.
+          </p>
+          <div class="hero__ctas">
+            <a class="btn" href={b.bookUrl}>Book an appointment</a>
+            <a class="btn btn--ghost" href={b.textHref}>Text {b.text}</a>
+          </div>
+          <a class="rating" href={b.reviewsUrl}>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            Rated {b.rating} by {b.reviewCount} clients on Google
+          </a>
+        </div>
+
+        <aside class="visitcard" aria-labelledby="vc-title">
+          <h2 id="vc-title">Find us at the Village at Leesburg</h2>
+          <address>
+            Salon Lofts<br />
+            {b.street}<br />
+            {b.city}, {b.region} {b.zip}
+          </address>
+          <dl class="hours">
+            {b.hours.map((h) => (
+              <div class={h.open === 'Closed' ? 'is-closed' : ''}>
+                <dt>{h.day}</dt><dd>{h.open}</dd>
+              </div>
+            ))}
+          </dl>
+          <a class="textlink" href="https://www.google.com/maps/dir/?api=1&destination=La+Sheida+Spa+1601+Village+Market+Blvd+SE+Leesburg+VA">Get directions</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- THREADING: featured, it's the #1 search priority -->
+    <section class="svc svc--threading" id="threading" aria-labelledby="t-title">
+      <div class="wrap svc__grid">
+        <div class="svc__intro">
+          <h2 id="t-title">Eyebrow threading</h2>
+          <p>
+            A single twisted cotton thread lifts each hair from the root. It’s precise
+            enough to shape a brow hair by hair and gentle on sensitive skin, with no
+            wax and nothing pulled across your eyelid.
+          </p>
+          <p>Tinting and shaping are available too. Ask at your appointment.</p>
+          <a class="textlink" href="/eyebrow-threading/">All about eyebrow threading</a>
+        </div>
+        <ul class="menu" aria-label="Threading prices">
+          {threading.map((i) => (
+            <li><span class="menu__name">{i.name}</span><span class="menu__lead" aria-hidden="true"></span><span class="menu__price">{i.price}</span></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- FACIALS: each one gets its own page -->
+    <section class="svc svc--facials" id="facials" aria-labelledby="f-title">
+      <div class="wrap">
+        <div class="svc__head">
+          <h2 id="f-title">Facials</h2>
+          <p>Every facial is 60 minutes, one-on-one, and adjusted to your skin on the day.</p>
+        </div>
+        <ul class="facials">
+          {facials.map((f) => (
+            <li>
+              <a href={`/facials/${f.slug}/`}>
+                <span class="facials__row">
+                  <span class="facials__name">{f.name}</span>
+                  <span class="menu__price">{f.price}</span>
+                </span>
+                <span class="facials__blurb">{f.blurb}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="textlink" href="/facials/">Compare facials</a>
+      </div>
+    </section>
+
+    <!-- WAXING -->
+    <section class="svc svc--waxing" id="waxing" aria-labelledby="w-title">
+      <div class="wrap">
+        <div class="svc__head">
+          <h2 id="w-title">Waxing</h2>
+          <p>Gentle, full-body waxing in a private room. Brazilian pricing depends on hair density.</p>
+        </div>
+        <div class="waxgroups">
+          {waxing.map((g) => (
+            <div>
+              <h3>{g.group}</h3>
+              <ul class="menu">
+                {g.items.map((i) => (
+                  <li><span class="menu__name">{i.name}</span><span class="menu__lead" aria-hidden="true"></span><span class="menu__price">{i.price}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <a class="textlink" href="/waxing/">More about waxing</a>
+      </div>
+    </section>
+
+    <!-- SHEIDA -->
+    <section class="sheida" aria-labelledby="s-title">
+      <div class="wrap sheida__grid">
+        <h2 id="s-title" class="sheida__statement">
+          35 years of threading, 22 years of skincare, and the same person at every appointment.
+        </h2>
+        <div class="sheida__copy">
+          <p>
+            Spa director Sheida Jowkar sees every client herself. Appointments are
+            one-on-one with a licensed esthetician, in a calm private studio, so you’re
+            never passed between rooms or rushed out for the next booking.
+          </p>
+          <p>
+            La Sheida Spa moved in 2026 and is now inside Salon Lofts at the Village at
+            Leesburg. Body treatments use organic products only.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISIT / BOOK -->
+    <section class="visit" id="visit" aria-labelledby="v-title">
+      <div class="wrap visit__grid">
+        <div>
+          <h2 id="v-title">Book your visit</h2>
+          <p>Book online, or call or text and Sheida will find you a time.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--light" href={b.bookUrl}>Book an appointment</a>
+            <a class="btn btn--ghost-light" href={b.phoneHref}>Call {b.phone}</a>
+          </div>
+        </div>
+        <div class="visit__details">
+          <p><strong>Salon Lofts, Suite 100</strong><br />{b.street.replace(', Suite 100', '')}<br />{b.city}, {b.region} {b.zip}</p>
+          <p>Open Monday and Wednesday to Saturday, 10 am to 5:30 pm.<br />Closed Tuesday and Sunday.</p>
+          <p><a href="/parking/">Parking at the Village at Leesburg</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap site-foot__in">
+      <p class="wordmark wordmark--foot">La Sheida <span>Spa</span></p>
+      <ul>
+        <li><a href="/eyebrow-threading/">Eyebrow threading</a></li>
+        <li><a href="/facials/">Facials</a></li>
+        <li><a href="/waxing/">Waxing</a></li>
+        <li><a href="/services/">Full price list</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://www.instagram.com/">Instagram</a></li>
+        <li><a href="https://www.facebook.com/">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/">TikTok</a></li>
+      </ul>
+      <p class="fine">Prices may change without notice. © 2026 La Sheida Spa.</p>
+    </div>
+  </footer>
+</Base>

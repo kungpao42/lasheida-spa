@@ -1,0 +1,48 @@
+---
+import '@fontsource-variable/bodoni-moda';
+import '@fontsource-variable/bodoni-moda/wght-italic.css';
+import '@fontsource-variable/hanken-grotesk';
+import '../styles/global.css';
+import { business } from '../data/services';
+
+interface Props { title: string; description: string }
+const { title, description } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'DaySpa',
+  name: business.name,
+  url: 'https://lasheidaspa.com/',
+  telephone: '+1-571-218-0986',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.street,
+    addressLocality: business.city,
+    addressRegion: business.region,
+    postalCode: business.zip,
+    addressCountry: 'US',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 39.0902554, longitude: -77.5265609 },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '10:00', closes: '17:30' },
+  ],
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '160' },
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="noindex" /><!-- dev preview: remove at launch -->
+  <link rel="canonical" href="https://lasheidaspa.com/" />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <slot />
+</body>
+</html>
