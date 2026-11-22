@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import { business as b, threading, facials, waxing } from '../data/services';
+import { business as b } from '../data/services';
 import Photo from '../components/Photo.astro';
+import { featured, reviews } from '../data/reviews';
+import { faqs } from '../data/faqs';
 ---
 <Base
   title="La Sheida Spa | Facials, Threading & Waxing in Leesburg, VA"
@@ -70,56 +72,60 @@ import Photo from '../components/Photo.astro';
       </div>
     </section>
 
-    <!-- THREADING: featured, it's the #1 search priority -->
-    <section class="svc svc--threading" id="threading" aria-labelledby="t-title">
-      <div class="threading__grid">
-        <div class="threading__photo">
-          <Photo name="products-bust" alt="A sculpted head beside skincare products on a studio shelf" sizes="(min-width: 960px) 40vw, 100vw" position="30% 50%" />
+    <!-- SERVICES: one panel each, the full menus live on the service pages -->
+    <section class="services" aria-labelledby="svc-title">
+      <div class="wrap">
+        <h2 id="svc-title" class="services__title">What Sheida does best</h2>
+        <div class="services__grid">
+          <article class="svc-panel svc-panel--lead">
+            <a href="/eyebrow-threading/" class="svc-panel__img"><Photo name="products-bust" alt="" sizes="(min-width: 960px) 40vw, 100vw" position="30% 50%" /></a>
+            <div class="svc-panel__body">
+              <h3><a href="/eyebrow-threading/">Eyebrow threading</a></h3>
+              <p>A single twisted cotton thread shapes your brows hair by hair. Precise, gentle on sensitive skin, and no wax near your eyes. Lip, chin and full-face threading too.</p>
+              <p class="svc-panel__price">From $20</p>
+            </div>
+          </article>
+          <article class="svc-panel">
+            <a href="/facials/" class="svc-panel__img"><Photo name="facial-equipment" alt="" sizes="(min-width: 960px) 28vw, 100vw" position="40% 50%" /></a>
+            <div class="svc-panel__body">
+              <h3><a href="/facials/">Facials</a></h3>
+              <p>Eight 60-minute facials, from Sheida’s signature custom facial to hydrodermabrasion, RF skin tightening and teen acne care.</p>
+              <p class="svc-panel__price">From $140</p>
+            </div>
+          </article>
+          <article class="svc-panel">
+            <a href="/waxing/" class="svc-panel__img"><Photo name="hands-petals" alt="" sizes="(min-width: 960px) 28vw, 100vw" /></a>
+            <div class="svc-panel__body">
+              <h3><a href="/waxing/">Waxing</a></h3>
+              <p>Gentle face, bikini and full-body waxing in a private room, including Brazilian and French bikini.</p>
+              <p class="svc-panel__price">From $10</p>
+            </div>
+          </article>
         </div>
-        <div class="threading__body">
-        <div class="svc__intro">
-          <h2 id="t-title">Eyebrow threading</h2>
-          <p>
-            A single twisted cotton thread lifts each hair from the root. It’s precise
-            enough to shape a brow hair by hair and gentle on sensitive skin, with no
-            wax and nothing pulled across your eyelid.
-          </p>
-          <p>Tinting and shaping are available too. Ask at your appointment.</p>
-          <a class="textlink" href="/eyebrow-threading/">All about eyebrow threading</a>
-        </div>
-        <ul class="menu" aria-label="Threading prices">
-          {threading.map((i) => (
-            <li><span class="menu__name">{i.name}</span><span class="menu__lead" aria-hidden="true"></span><span class="menu__price">{i.price}</span></li>
-          ))}
-        </ul>
-        </div>
+        <a class="textlink" href="/services/">See the full price list</a>
       </div>
     </section>
 
-    <!-- FACIALS: each one gets its own page -->
-    <section class="svc svc--facials" id="facials" aria-labelledby="f-title">
-      <div class="banner">
-        <Photo name="facial-equipment" alt="Hydrodermabrasion and microdermabrasion machines in the treatment room" sizes="100vw" position="50% 40%" />
-      </div>
-      <div class="wrap facials__wrap">
-        <div class="svc__head">
-          <h2 id="f-title">Facials</h2>
-          <p>Every facial is 60 minutes, one-on-one, and adjusted to your skin on the day.</p>
-        </div>
-        <ul class="facials">
-          {facials.map((f) => (
+    <!-- REVIEWS: verbatim from Google -->
+    <section class="reviews" aria-labelledby="r-title">
+      <div class="wrap">
+        <h2 id="r-title" class="sr-only">Client reviews</h2>
+        <figure class="reviews__lead">
+          <blockquote><p>{featured.quote}</p></blockquote>
+          <figcaption>{featured.name}, {featured.service.toLowerCase()} client</figcaption>
+        </figure>
+        <ul class="reviews__grid">
+          {reviews.map((r) => (
             <li>
-              <a href={`/facials/${f.slug}/`}>
-                <span class="facials__row">
-                  <span class="facials__name">{f.name}</span>
-                  <span class="menu__price">{f.price}</span>
-                </span>
-                <span class="facials__blurb">{f.blurb}</span>
-              </a>
+              <figure>
+                <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+                <blockquote><p>{r.quote}</p></blockquote>
+                <figcaption>{r.name} <span>{r.service}</span></figcaption>
+              </figure>
             </li>
           ))}
         </ul>
-        <a class="textlink" href="/facials/">Compare facials</a>
+        <a class="textlink" href={b.reviewsUrl}>Read all {b.reviewCount} reviews on Google</a>
       </div>
     </section>
 
@@ -129,34 +135,6 @@ import Photo from '../components/Photo.astro';
       <Photo class="strip__b" name="clock-detail" alt="A vintage clock and salt lamp on a shelf in the studio" sizes="(min-width: 720px) 20vw, 50vw" />
       <Photo class="strip__c" name="orchid-diffuser" alt="Reed diffusers and a purple orchid" sizes="(min-width: 720px) 20vw, 50vw" />
       <Photo class="strip__d" name="products-boxes" alt="Boxed skincare products lined up on a shelf" sizes="(min-width: 720px) 20vw, 100vw" />
-    </section>
-
-    <!-- WAXING -->
-    <section class="svc svc--waxing" id="waxing" aria-labelledby="w-title">
-      <div class="wrap">
-        <div class="svc__head">
-          <h2 id="w-title">Waxing</h2>
-          <p>Gentle, full-body waxing in a private room. Brazilian pricing depends on hair density.</p>
-        </div>
-        <div class="wax__grid">
-        <div class="wax__photo arch">
-          <Photo name="hands-petals" alt="Smooth hands resting among white petals" sizes="(min-width: 960px) 25vw, 80vw" />
-        </div>
-        <div class="waxgroups">
-          {waxing.map((g) => (
-            <div>
-              <h3>{g.group}</h3>
-              <ul class="menu">
-                {g.items.map((i) => (
-                  <li><span class="menu__name">{i.name}</span><span class="menu__lead" aria-hidden="true"></span><span class="menu__price">{i.price}</span></li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        </div>
-        <a class="textlink" href="/waxing/">More about waxing</a>
-      </div>
     </section>
 
     <!-- SHEIDA -->
@@ -180,6 +158,21 @@ import Photo from '../components/Photo.astro';
             Leesburg. Body treatments use organic products only.
           </p>
         </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__grid">
+        <h2 id="faq-title">Questions before your first visit</h2>
+        <div class="faq__list">
+          {faqs.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>

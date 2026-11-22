@@ -4,6 +4,7 @@ import '@fontsource-variable/bodoni-moda/wght-italic.css';
 import '@fontsource-variable/hanken-grotesk';
 import '../styles/global.css';
 import { business } from '../data/services';
+import { faqs } from '../data/faqs';
 
 interface Props { title: string; description: string }
 const { title, description } = Astro.props;
@@ -40,6 +41,7 @@ const schema = {
   <meta name="robots" content="noindex" /><!-- dev preview: remove at launch -->
   <link rel="canonical" href="https://lasheidaspa.com/" />
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  {Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })} />}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
