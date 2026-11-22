@@ -1,16 +1,43 @@
 {
   "base": "https://lasheidaspa.com/wp-content/uploads/",
   "images": {
-    "treatment-bed": ["2022/09/IMG_6752-scaled.jpg", "elementor/thumbs/IMG_6752-scaled-rvm8zm7ckody0fl6khsdue5skm0mquexpso0shg3ms.jpg"],
-    "treatment-room": ["2022/09/IMG_6755-scaled.jpg"],
-    "facial-equipment": ["2022/09/IMG_6749-scaled.jpg"],
-    "clock-detail": ["2022/09/IMG_6739-scaled.jpg"],
-    "products-shelf": ["2022/09/IMG_6775-scaled.jpg"],
-    "products-serums": ["2022/09/IMG_6772-scaled.jpg"],
-    "products-bust": ["2022/09/IMG_6777-scaled.jpg"],
-    "products-boxes": ["2022/09/IMG_6779-scaled.jpg"],
-    "orchid-diffuser": ["2020/03/white-and-purple-flower-plant-on-brown-wooden-surface-161599-scaled.jpg"],
-    "candle": ["2019/05/PeopleImages2.jpg"],
-    "hands-petals": ["2019/05/PeopleImages3.jpg"]
+    "treatment-bed": [
+      "2022/09/IMG_6752-scaled.jpg",
+      "elementor/thumbs/IMG_6752-scaled-rvm8zm7ckody0fl6khsdue5skm0mquexpso0shg3ms.jpg"
+    ],
+    "treatment-room": [
+      "2022/09/IMG_6755-scaled.jpg"
+    ],
+    "facial-equipment": [
+      "2022/09/IMG_6749-scaled.jpg"
+    ],
+    "clock-detail": [
+      "2022/09/IMG_6739-scaled.jpg"
+    ],
+    "products-shelf": [
+      "2022/09/IMG_6775-scaled.jpg"
+    ],
+    "products-serums": [
+      "2022/09/IMG_6772-scaled.jpg"
+    ],
+    "products-bust": [
+      "2022/09/IMG_6777-scaled.jpg"
+    ],
+    "products-boxes": [
+      "2022/09/IMG_6779-scaled.jpg"
+    ],
+    "orchid-diffuser": [
+      "2020/03/white-and-purple-flower-plant-on-brown-wooden-surface-161599-scaled.jpg"
+    ],
+    "candle": [
+      "2019/05/PeopleImages2.jpg"
+    ],
+    "hands-petals": [
+      "2019/05/PeopleImages3.jpg"
+    ]
+  },
+  "raw": {
+    "logo-ig-1440.jpg": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/626078612_18390042184148798_3932349009873530479_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ig_cache_key=MjA0OTcyMTUzNjc4NDUzNTMyMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMiJ9&_nc_ohc=kO-yUOTUoGoQ7kNvwEQIxwX&_nc_oc=AdpdcxbEVq5umZmNCmKJe9vsob2fYybzLfHH9MHCyLO0j9SDpdwFXC-9-5RhhY5APDg&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=C1pIS_wEcW-g5dJaCiZPJw&_nc_ss=7b6a8&_nc_ct=RQgsPBUIFQIlBAAAAA&oh=00_AQQYMdaujjZb0Kr9UxWgHBiB0tE_afpkYmPBeE7EHhWAYg&oe=6B08CAF3",
+    "logo-site-500.png": "https://lasheidaspa.com/wp-content/uploads/2019/06/output-onlinepngtools-13.png"
   }
 }
