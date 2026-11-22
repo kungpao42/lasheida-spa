@@ -1,0 +1,16 @@
+{
+  "base": "https://lasheidaspa.com/wp-content/uploads/",
+  "images": {
+    "treatment-bed": ["2022/09/IMG_6752-scaled.jpg", "elementor/thumbs/IMG_6752-scaled-rvm8zm7ckody0fl6khsdue5skm0mquexpso0shg3ms.jpg"],
+    "treatment-room": ["2022/09/IMG_6755-scaled.jpg"],
+    "facial-equipment": ["2022/09/IMG_6749-scaled.jpg"],
+    "clock-detail": ["2022/09/IMG_6739-scaled.jpg"],
+    "products-shelf": ["2022/09/IMG_6775-scaled.jpg"],
+    "products-serums": ["2022/09/IMG_6772-scaled.jpg"],
+    "products-bust": ["2022/09/IMG_6777-scaled.jpg"],
+    "products-boxes": ["2022/09/IMG_6779-scaled.jpg"],
+    "orchid-diffuser": ["2020/03/white-and-purple-flower-plant-on-brown-wooden-surface-161599-scaled.jpg"],
+    "candle": ["2019/05/PeopleImages2.jpg"],
+    "hands-petals": ["2019/05/PeopleImages3.jpg"]
+  }
+}

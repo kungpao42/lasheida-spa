@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { business as b, threading, facials, waxing } from '../data/services';
+import Photo from '../components/Photo.astro';
 ---
 <Base
   title="La Sheida Spa | Facials, Threading & Waxing in Leesburg, VA"
@@ -37,9 +38,6 @@ import { business as b, threading, facials, waxing } from '../data/services';
   <main id="main">
     <!-- HERO: the thread is the one memorable element -->
     <section class="hero">
-      <svg class="thread" viewBox="0 0 860 900" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
-        <path pathLength="1000" d="M0 840 C 140 840, 215 700, 230 520 C 245 300, 330 138, 471 136 C 612 134, 700 230, 752 330 C 790 404, 830 470, 880 505" />
-      </svg>
       <div class="wrap hero__grid">
         <div class="hero__copy">
           <h1>Eyebrow threading, facials &amp; waxing in Leesburg, Virginia</h1>
@@ -57,28 +55,28 @@ import { business as b, threading, facials, waxing } from '../data/services';
           </a>
         </div>
 
-        <aside class="visitcard" aria-labelledby="vc-title">
-          <h2 id="vc-title">Find us at the Village at Leesburg</h2>
-          <address>
-            Salon Lofts<br />
-            {b.street}<br />
-            {b.city}, {b.region} {b.zip}
-          </address>
-          <dl class="hours">
-            {b.hours.map((h) => (
-              <div class={h.open === 'Closed' ? 'is-closed' : ''}>
-                <dt>{h.day}</dt><dd>{h.open}</dd>
-              </div>
-            ))}
-          </dl>
-          <a class="textlink" href="https://www.google.com/maps/dir/?api=1&destination=La+Sheida+Spa+1601+Village+Market+Blvd+SE+Leesburg+VA">Get directions</a>
-        </aside>
+        <figure class="hero__photo">
+          <div class="arch">
+            <Photo name="treatment-bed" eager alt="A made-up facial bed with a soft throw in La Sheida Spa's treatment room" sizes="(min-width: 960px) 34vw, 90vw" />
+          </div>
+          <svg class="thread" viewBox="0 0 432 532" aria-hidden="true">
+            <path pathLength="1000" d="M0 532 V216 A216 216 0 0 1 432 216 V470 C432 520, 470 560, 560 560" />
+          </svg>
+          <figcaption class="hero__tag">
+            <strong>Inside Salon Lofts, Suite 100</strong>
+            Village at Leesburg
+          </figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- THREADING: featured, it's the #1 search priority -->
     <section class="svc svc--threading" id="threading" aria-labelledby="t-title">
-      <div class="wrap svc__grid">
+      <div class="threading__grid">
+        <div class="threading__photo">
+          <Photo name="products-bust" alt="A sculpted head beside skincare products on a studio shelf" sizes="(min-width: 960px) 40vw, 100vw" position="30% 50%" />
+        </div>
+        <div class="threading__body">
         <div class="svc__intro">
           <h2 id="t-title">Eyebrow threading</h2>
           <p>
@@ -94,12 +92,16 @@ import { business as b, threading, facials, waxing } from '../data/services';
             <li><span class="menu__name">{i.name}</span><span class="menu__lead" aria-hidden="true"></span><span class="menu__price">{i.price}</span></li>
           ))}
         </ul>
+        </div>
       </div>
     </section>
 
     <!-- FACIALS: each one gets its own page -->
     <section class="svc svc--facials" id="facials" aria-labelledby="f-title">
-      <div class="wrap">
+      <div class="banner">
+        <Photo name="facial-equipment" alt="Hydrodermabrasion and microdermabrasion machines in the treatment room" sizes="100vw" position="50% 40%" />
+      </div>
+      <div class="wrap facials__wrap">
         <div class="svc__head">
           <h2 id="f-title">Facials</h2>
           <p>Every facial is 60 minutes, one-on-one, and adjusted to your skin on the day.</p>
@@ -121,12 +123,24 @@ import { business as b, threading, facials, waxing } from '../data/services';
       </div>
     </section>
 
+    <!-- DETAILS STRIP -->
+    <section class="strip" aria-label="Around the studio">
+      <Photo class="strip__a" name="products-shelf" alt="Skincare products and a pump bottle on a wooden shelf" sizes="(min-width: 720px) 40vw, 100vw" />
+      <Photo class="strip__b" name="clock-detail" alt="A vintage clock and salt lamp on a shelf in the studio" sizes="(min-width: 720px) 20vw, 50vw" />
+      <Photo class="strip__c" name="orchid-diffuser" alt="Reed diffusers and a purple orchid" sizes="(min-width: 720px) 20vw, 50vw" />
+      <Photo class="strip__d" name="products-boxes" alt="Boxed skincare products lined up on a shelf" sizes="(min-width: 720px) 20vw, 100vw" />
+    </section>
+
     <!-- WAXING -->
     <section class="svc svc--waxing" id="waxing" aria-labelledby="w-title">
       <div class="wrap">
         <div class="svc__head">
           <h2 id="w-title">Waxing</h2>
           <p>Gentle, full-body waxing in a private room. Brazilian pricing depends on hair density.</p>
+        </div>
+        <div class="wax__grid">
+        <div class="wax__photo arch">
+          <Photo name="hands-petals" alt="Smooth hands resting among white petals" sizes="(min-width: 960px) 25vw, 80vw" />
         </div>
         <div class="waxgroups">
           {waxing.map((g) => (
@@ -140,6 +154,7 @@ import { business as b, threading, facials, waxing } from '../data/services';
             </div>
           ))}
         </div>
+        </div>
         <a class="textlink" href="/waxing/">More about waxing</a>
       </div>
     </section>
@@ -147,6 +162,10 @@ import { business as b, threading, facials, waxing } from '../data/services';
     <!-- SHEIDA -->
     <section class="sheida" aria-labelledby="s-title">
       <div class="wrap sheida__grid">
+        <div class="sheida__photo">
+          <Photo name="treatment-room" alt="Treatment room with a facial bed, magnifying lamp and equipment" sizes="(min-width: 960px) 40vw, 100vw" />
+        </div>
+        <div>
         <h2 id="s-title" class="sheida__statement">
           35 years of threading, 22 years of skincare, and the same person at every appointment.
         </h2>
@@ -160,6 +179,7 @@ import { business as b, threading, facials, waxing } from '../data/services';
             La Sheida Spa moved in 2026 and is now inside Salon Lofts at the Village at
             Leesburg. Body treatments use organic products only.
           </p>
+        </div>
         </div>
       </div>
     </section>
@@ -175,11 +195,24 @@ import { business as b, threading, facials, waxing } from '../data/services';
             <a class="btn btn--ghost-light" href={b.phoneHref}>Call {b.phone}</a>
           </div>
         </div>
-        <div class="visit__details">
-          <p><strong>Salon Lofts, Suite 100</strong><br />{b.street.replace(', Suite 100', '')}<br />{b.city}, {b.region} {b.zip}</p>
-          <p>Open Monday and Wednesday to Saturday, 10 am to 5:30 pm.<br />Closed Tuesday and Sunday.</p>
-          <p><a href="/parking/">Parking at the Village at Leesburg</a></p>
-        </div>
+        <aside class="visitcard" aria-labelledby="vc-title">
+          <h3 id="vc-title">Salon Lofts, Suite 100</h3>
+          <address>
+            {b.street.replace(', Suite 100', '')}<br />
+            {b.city}, {b.region} {b.zip}
+          </address>
+          <dl class="hours">
+            {b.hours.map((h) => (
+              <div class={h.open === 'Closed' ? 'is-closed' : ''}>
+                <dt>{h.day}</dt><dd>{h.open}</dd>
+              </div>
+            ))}
+          </dl>
+          <p class="visitcard__links">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=La+Sheida+Spa+1601+Village+Market+Blvd+SE+Leesburg+VA">Get directions</a>
+            <a href="/parking/">Parking</a>
+          </p>
+        </aside>
       </div>
     </section>
   </main>
