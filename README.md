@@ -21,3 +21,8 @@ studio: replace them with new Salon Lofts photos when available.
 Traced from the 1440px Instagram logo (`brand-source/`). `node scripts/trace-logo.mjs && node scripts/build-logo-svgs.mjs`
 regenerates `public/brand/*.svg` (horizontal, stacked, light variants, mark), `public/favicon.svg`,
 `apple-touch-icon.png`, `favicon-32.png` and the 1200×630 `og-image.jpg`. Brand colors: gold #bcaa4e, purple #7c397b.
+
+## @ID stack
+
+The ID page, Google Cloud page and BatchGeo map for La Sheida Spa (and the homepage schema that points at
+them) now live in https://github.com/kungpao42/id-stacks under `clients/lasheidaspa/`.
