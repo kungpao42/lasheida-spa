@@ -251,10 +251,11 @@ await writeFile(`${out}/privacy-policy.html`, shell(`Privacy Policy | ${c.name}`
 if (c.batchgeo) {
   const bg = c.batchgeo;
   await mkdir(`stacks/dist/${c.slug}-batchgeo`, { recursive: true });
-  // one-row sheet to paste into batchgeo.com (tab-separated, header row first)
-  const cols = ['Name', 'Address', 'City', 'State', 'Zipcode', 'Phone', 'Website', 'Google Business Profile', 'Category'];
-  const row = [c.name, c.street, c.city, c.stateAbbr, c.zip, c.phone, c.website, cidUrl, `${c.keywords[4]}`];
-  await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-sheet.tsv`, cols.join('\t') + '\n' + row.join('\t') + '\n');
+  // sheet to PASTE into batchgeo.com (tab-separated, header row first) - same columns as the reference map
+  const cols = ['Address', 'Target Company Name', 'Phone Number', 'URL', 'Keyword Title'];
+  const rows = (bg.rows || [[`${c.street}, ${c.city}, ${c.stateAbbr} ${c.zip}`, c.name, c.phone, c.website, c.keywords[4]]])
+    .map((r) => r.map((v) => (v === 'GBP' ? `https://www.google.com/maps?cid=${c.gbpCid}` : v)));
+  await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-paste-this.txt`, [cols, ...rows].map((r) => r.join('\t')).join('\n') + '\n');
   await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-title.txt`, bg.mapTitle + '\n');
   await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-description.txt`, bg.description.join('\n\n') + '\n');
   // GCS wrapper page: mirrors the reference (text line + BatchGeo iframe + full-screen link)

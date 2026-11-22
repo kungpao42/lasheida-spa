@@ -100,7 +100,7 @@
     "mapTitle": "Esthetician Leesburg - La Sheida Spa",
     "mapUrl": "",
     "description": [
-      "La Sheida Spa is a private day spa in Leesburg, Virginia, inside Salon Lofts at the Village at Leesburg (1601 Village Market Blvd SE, Suite 100). Spa director Sheida Jowkar is a licensed esthetician with more than 22 years of skincare experience and over 35 years of eyebrow threading and waxing. Every appointment is one-on-one, in a calm, private studio.",
+      "At <a href=\"https://www.google.com/maps?cid=15452416542071472731\">La Sheida Spa</a>, a private day spa in Leesburg, Virginia, inside Salon Lofts at the Village at Leesburg (1601 Village Market Blvd SE, Suite 100), spa director Sheida Jowkar is a licensed esthetician with more than 22 years of skincare experience and over 35 years of eyebrow threading and waxing. Every appointment is one-on-one, in a calm, private studio.",
       "Esthetician in Leesburg, VA",
       "Clients come to La Sheida Spa for three things: precise eyebrow threading, custom facials and gentle waxing. Because Sheida sees each client herself, treatments are adjusted on the day to your skin and your brows rather than following a fixed script.",
       "Eyebrow Threading:\nA single twisted cotton thread lifts each hair from the root, shaping the brow hair by hair without wax near the eyes. Threading is $23 for a first visit and $20 for returning clients. Upper lip and brows are $33, upper lip and chin $22, sideburns $15, and full-face threading including brows $60. Brow tinting and shaping are available on request.",
@@ -108,10 +108,117 @@
       "Waxing:\nFace and full-body waxing in a private room, from $10. Services include eyebrow, lip, chin and full-face waxing, underarms, arms, legs, back and shoulders, bikini line, French bikini and Brazilian (from $60, depending on hair density). Body treatments use organic products.",
       "Hours and Booking:\nOpen Monday and Wednesday through Saturday, 10 am to 5:30 pm; closed Tuesday and Sunday. Call 571-218-0986, text 571-601-0009 or book online. La Sheida Spa holds a 5.0 rating from more than 160 Google reviews.",
       "https://lasheidaspa.com/"
+    ],
+    "rows": [
+      [
+        "1601 Village Market Blvd SE, Suite 100, Leesburg, VA 20175",
+        "La Sheida Spa",
+        "571-218-0986",
+        "https://lasheidaspa.com/",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Leesburg, VA",
+        "Esthetician Leesburg",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Linden Hill, Leesburg, VA 20175",
+        "Eyebrow Threading",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Greenway Farm, Leesburg, VA 20175",
+        "Facial Spa Leesburg",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Lansdowne, VA 20176",
+        "Day Spa Leesburg",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Belmont, VA 20147",
+        "Waxing Leesburg",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Ashburn, VA 20147",
+        "Eyebrow Shaping",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Paeonian Springs, VA",
+        "Eyebrow Threading Leesburg",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Hamilton, VA 20158",
+        "Brazilian Wax Leesburg",
+        "",
+        "GBP",
+        "Esthetician Leesburg"
+      ],
+      [
+        "Battlefield Pkwy SE, Leesburg, VA 20175",
+        "Eyebrow Threading Near me",
+        "",
+        "GBP",
+        "Eyebrow Threading"
+      ],
+      [
+        "Edwards Ferry Rd NE, Leesburg, VA 20176",
+        "Facial Spa Near me",
+        "",
+        "GBP",
+        "Eyebrow Threading"
+      ],
+      [
+        "Fort Evans Rd NE, Leesburg, VA 20176",
+        "Esthetician Near me",
+        "",
+        "GBP",
+        "Eyebrow Threading"
+      ],
+      [
+        "Sycolin Rd SE, Leesburg, VA 20175",
+        "Waxing Near me",
+        "",
+        "GBP",
+        "Eyebrow Threading"
+      ],
+      [
+        "Catoctin Cir SW, Leesburg, VA 20175",
+        "Day Spa Near me",
+        "",
+        "GBP",
+        "Eyebrow Threading"
+      ],
+      [
+        "Plaza St NE, Leesburg, VA 20176",
+        "Eyebrow Shaping Near me",
+        "",
+        "GBP",
+        "Eyebrow Threading"
+      ]
     ]
   },
   "gcs": {
-    "bucket": "",
+    "bucket": "g-bigstacks",
     "file": "La-Sheida-Spa.html"
   }
 }
