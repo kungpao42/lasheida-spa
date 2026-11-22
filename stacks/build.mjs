@@ -261,7 +261,7 @@ if (c.batchgeo) {
   // GCS wrapper page: mirrors the reference (text line + BatchGeo iframe + full-screen link)
   const mapUrl = bg.mapUrl || 'https://batchgeo.com/map/REPLACE_WITH_MAP_ID';
   const wrapper = `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>${esc(bg.mapTitle)}</title></head><body>${esc(bg.mapTitle)}
-<p><iframe src="${mapUrl}" frameborder="0" width="100%" height="550" sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-modals allow-forms" allow="geolocation https://batchgeo.com" style="border:1px solid #aaa; position: relative;" scrolling="no"></iframe></p><p><small>View <a href="${mapUrl}">${esc(bg.mapTitle)}</a> in a full screen map</small></p></body></html>
+<p><iframe src="${mapUrl}" frameborder="0" width="100%" height="550" sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-modals allow-forms" allow="geolocation https://batchgeo.com" style="border:1px solid #aaa; position: relative;" scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p><p><small>View <a href="${mapUrl}">${esc(bg.mapTitle)}</a> in a full screen map</small></p></body></html>
 `;
   await writeFile(`stacks/dist/${c.slug}-batchgeo/${c.gcs?.file || c.slug + '.html'}`, wrapper);
 }
