@@ -25,7 +25,7 @@ const heroFile = `img/${c.slug}-${today}.jpg`;
 const localBusiness = {
   '@context': 'http://www.schema.org', '@type': 'LocalBusiness', name: c.name,
   sameAs: c.sameAs, logo: 'img/logo.png', image: heroFile, url: c.pageUrl,
-  description: c.shortDescription, telephone: c.phone,
+  description: c.shortDescription, telephone: c.phone, ...(c.email ? { email: c.email } : {}),
   address: { '@type': 'PostalAddress', streetAddress: c.street, addressLocality: c.city, addressRegion: c.stateAbbr, postalCode: c.zip },
   hasMap: cidUrl,
 };
