@@ -50,21 +50,3 @@ section keyword.
 - Kept from the reference on purpose: the intro and kw2 paragraphs sit inside `<h3>` (not valid HTML, but
   part of the template's heading weighting), styled back to body size.
 
-## Deploying to S3
-`.github/workflows/deploy-id-page.yml` syncs `stacks/dist/lasheidaspa/` to `s3://slstacks/lasheidaspa/`
-on every push that changes it (or run it from the Actions tab). It needs two repo secrets,
-`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` (optional repo variable `AWS_REGION`), from an IAM user
-limited to this bucket prefix:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    { "Effect": "Allow", "Action": ["s3:PutObject", "s3:DeleteObject", "s3:GetObject"],
-      "Resource": "arn:aws:s3:::slstacks/lasheidaspa/*" },
-    { "Effect": "Allow", "Action": "s3:ListBucket", "Resource": "arn:aws:s3:::slstacks",
-      "Condition": { "StringLike": { "s3:prefix": ["lasheidaspa/*"] } } }
-  ]
-}
-```
-Public read comes from the bucket's existing policy (the same way the priority1plumbing/ pages are public).
