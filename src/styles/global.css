@@ -5,9 +5,9 @@
   --porcelain: #f5f2f6;   /* page: cool, lilac-tinted white */
   --mist: #ebe4ee;        /* alternate section */
   --aubergine: #3a1e32;   /* text, dark bands */
-  --orchid: #7e3f6c;      /* links, buttons */
+  --orchid: #7c397b;      /* links, buttons: the logo's purple */
   --blush: #ecd0cc;       /* nod to the current brand coral, softened */
-  --thread: #b0864e;      /* the thread: gold from the logo, used for lines only */
+  --thread: #bcaa4e;      /* the thread: the logo's gold, used for lines only */
 
   --serif: 'Bodoni Moda Variable', 'Didot', Georgia, serif;
   --sans: 'Hanken Grotesk Variable', system-ui, sans-serif;
@@ -52,12 +52,10 @@ ul { list-style: none; margin: 0; padding: 0; }
 .contactbar a { color: #fff; text-decoration: none; }
 .contactbar a:hover { text-decoration: underline; color: #fff; }
 
-.site-head__in { display: flex; align-items: center; gap: 2rem; padding-block: 1.25rem; }
-.wordmark {
-  font-family: var(--serif); font-size: 1.65rem; font-weight: 500; color: var(--aubergine);
-  text-decoration: none; letter-spacing: -0.01em; white-space: nowrap;
-}
-.wordmark span { font-style: italic; font-weight: 400; color: var(--thread); }
+.site-head__in { display: flex; align-items: center; gap: 2rem; padding-block: .9rem; }
+.logo { display: block; line-height: 0; }
+.logo img { height: 74px; width: auto; }
+.logo--foot { height: 150px; width: auto; }
 .site-head nav { margin-left: auto; }
 .site-head nav ul { display: flex; gap: 1.75rem; }
 .site-head nav a { color: var(--aubergine); text-decoration: none; font-weight: 500; }
@@ -196,7 +194,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .site-foot ul li { margin-bottom: .5rem; }
 .site-foot a { color: var(--blush); text-decoration: none; }
 .site-foot a:hover { color: #fff; text-decoration: underline; }
-.wordmark--foot { color: var(--porcelain); margin: 0; }
+
 .fine { grid-column: 1 / -1; margin: 1.5rem 0 0; opacity: .7; }
 
 /* ---------- responsive ---------- */
@@ -229,5 +227,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   .strip__d { display: none; }
 
   .site-foot__in { grid-template-columns: 1fr 1fr; }
-  .site-foot__in > .wordmark--foot { grid-column: 1 / -1; }
+  .site-foot__in > .logo--foot { grid-column: 1 / -1; height: 120px; }
+  .logo img { height: 48px; }
 }
