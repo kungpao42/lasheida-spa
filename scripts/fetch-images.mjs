@@ -28,6 +28,7 @@ for (const [file, url] of Object.entries(cfg.raw ?? {})) {
   try { await access(new URL(file, rawDir)); console.log(`skip ${file}`); continue; } catch {}
   const res = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 lasheidaspa-redesign-import' } });
   if (!res.ok) { console.error(`FAILED ${file} (${res.status})`); process.exitCode = 1; continue; }
+  await mkdir(new URL('.', new URL(file, rawDir)), { recursive: true });
   await writeFile(new URL(file, rawDir), Buffer.from(await res.arrayBuffer()));
   console.log(`got ${file}`);
 }
