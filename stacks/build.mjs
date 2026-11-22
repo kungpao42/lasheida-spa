@@ -18,8 +18,8 @@ const yt = c.youtubeId;
 const today = new Date().toISOString().slice(0, 10);
 
 // local assets: logo + hero (like the reference's img/ folder)
-await sharp(c.logo).resize({ height: 300, withoutEnlargement: true }).png().toFile(`${out}/img/logo.png`);
-await sharp(c.hero).resize({ width: 768, height: 1024, fit: 'cover' }).jpeg({ quality: 82 }).toFile(`${out}/img/${c.slug}-${today}.jpg`);
+await sharp(c.logo).resize({ height: 150, withoutEnlargement: true }).png({ compressionLevel: 9, palette: true }).toFile(`${out}/img/logo.png`);
+await sharp(c.hero).resize({ width: 384, height: 512, fit: 'cover' }).jpeg({ quality: 80, mozjpeg: true }).toFile(`${out}/img/${c.slug}-${today}.jpg`);
 const heroFile = `img/${c.slug}-${today}.jpg`;
 
 const localBusiness = {

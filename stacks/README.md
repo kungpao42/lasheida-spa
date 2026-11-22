@@ -5,7 +5,7 @@ Reverse-engineered from the Priority 1 Plumbing ID page
 
 `node stacks/build.mjs stacks/config/lasheidaspa.json` writes `stacks/dist/<slug>/`:
 `id.html`, `sitemap.html`, `privacy-policy.html`, `img/` (logo + hero). Upload that folder to
-`s3://slstacks/<slug>/` (public-read).
+`s3://bigstack/<slug>/` (public-read).
 
 ## Anatomy of the reference page
 
