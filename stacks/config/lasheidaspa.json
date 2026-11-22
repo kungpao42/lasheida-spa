@@ -45,11 +45,26 @@
     "kw7": "AF1QipNfgd7771igsBVt4Dn7PbxDxRiajE9wbWxPNSFl"
   },
   "usefulLinks": [
-    ["Services & Prices", "https://lasheidaspa.com/services/"],
-    ["Book an Appointment", "https://lasheidaspa.com/appointments/"],
-    ["Spa Gallery", "https://lasheidaspa.com/spa-gallery/"],
-    ["Parking", "https://lasheidaspa.com/parking/"],
-    ["Contact Us", "https://lasheidaspa.com/get-in-touch/"]
+    [
+      "Services & Prices",
+      "https://lasheidaspa.com/services/"
+    ],
+    [
+      "Book an Appointment",
+      "https://lasheidaspa.com/appointments/"
+    ],
+    [
+      "Spa Gallery",
+      "https://lasheidaspa.com/spa-gallery/"
+    ],
+    [
+      "Parking",
+      "https://lasheidaspa.com/parking/"
+    ],
+    [
+      "Contact Us",
+      "https://lasheidaspa.com/get-in-touch/"
+    ]
   ],
   "contactUrl": "https://lasheidaspa.com/get-in-touch/",
   "copy": {
@@ -80,5 +95,23 @@
       "Good eyebrow shaping starts with your natural brow line. Sheida maps the shape that suits your face, then removes only what's needed, so brows look clean and defined without looking drawn on.",
       "Shaping can be done with threading or wax and paired with tinting for fuller-looking brows. Regular clients typically return every few weeks to keep the shape."
     ]
+  },
+  "batchgeo": {
+    "mapTitle": "Esthetician Leesburg - La Sheida Spa",
+    "mapUrl": "",
+    "description": [
+      "La Sheida Spa is a private day spa in Leesburg, Virginia, inside Salon Lofts at the Village at Leesburg (1601 Village Market Blvd SE, Suite 100). Spa director Sheida Jowkar is a licensed esthetician with more than 22 years of skincare experience and over 35 years of eyebrow threading and waxing. Every appointment is one-on-one, in a calm, private studio.",
+      "Esthetician in Leesburg, VA",
+      "Clients come to La Sheida Spa for three things: precise eyebrow threading, custom facials and gentle waxing. Because Sheida sees each client herself, treatments are adjusted on the day to your skin and your brows rather than following a fixed script.",
+      "Eyebrow Threading:\nA single twisted cotton thread lifts each hair from the root, shaping the brow hair by hair without wax near the eyes. Threading is $23 for a first visit and $20 for returning clients. Upper lip and brows are $33, upper lip and chin $22, sideburns $15, and full-face threading including brows $60. Brow tinting and shaping are available on request.",
+      "Custom Facials:\nEight 60-minute facials, each tailored to your skin: Sheida's signature custom facial ($160), hydrodermabrasion ($180), microdermabrasion ($155), RF skin tightening ($165), needle-free mesotherapy ($200), a teen acne facial for ages 12 and up ($140), a relaxation facial without extractions ($150) and a men's facial (from $140).",
+      "Waxing:\nFace and full-body waxing in a private room, from $10. Services include eyebrow, lip, chin and full-face waxing, underarms, arms, legs, back and shoulders, bikini line, French bikini and Brazilian (from $60, depending on hair density). Body treatments use organic products.",
+      "Hours and Booking:\nOpen Monday and Wednesday through Saturday, 10 am to 5:30 pm; closed Tuesday and Sunday. Call 571-218-0986, text 571-601-0009 or book online. La Sheida Spa holds a 5.0 rating from more than 160 Google reviews.",
+      "https://lasheidaspa.com/"
+    ]
+  },
+  "gcs": {
+    "bucket": "",
+    "file": "La-Sheida-Spa.html"
   }
 }

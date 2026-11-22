@@ -15,6 +15,7 @@ const cidUrl = `https://maps.google.com/?cid=${c.gbpCid}`;
 const gbp = (id) => `https://lh5.googleusercontent.com/p/${id}`;
 const paras = (arr) => arr.map((p) => `<p>${esc(p)}</p>`).join('\n');
 const yt = c.youtubeId;
+if (!c.secondStackUrl && c.gcs?.bucket && c.batchgeo?.mapUrl) c.secondStackUrl = `https://storage.googleapis.com/${c.gcs.bucket}/${c.gcs.file}`;
 const today = new Date().toISOString().slice(0, 10);
 
 // local assets: logo + hero (like the reference's img/ folder)
@@ -245,4 +246,22 @@ await writeFile(`${out}/id.html`, html);
 const shell = (title, body) => `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><meta name="robots" content="noindex, follow"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"></head><body class="container py-5">${body}<p class="mt-5"><a href="${c.pageUrl}">Back to ${esc(c.name)}</a></p></body></html>`;
 await writeFile(`${out}/sitemap.html`, shell(`Sitemap | ${c.name}`, `<h1>Sitemap</h1><ul><li><a href="${c.pageUrl}">${esc(H1)}</a></li>${c.keywords.map((k) => `<li><a href="${c.pageUrl}#${encodeURIComponent(k)}">${esc(k)}</a></li>`).join('')}<li><a href="${c.website}">${esc(c.name)} website</a></li></ul>`));
 await writeFile(`${out}/privacy-policy.html`, shell(`Privacy Policy | ${c.name}`, `<h1>Privacy Policy</h1><p>This page is an informational listing for ${esc(c.name)}, ${esc(c.street)}, ${esc(c.city)}, ${esc(c.stateAbbr)} ${esc(c.zip)}. It does not collect personal information, use forms, or set cookies of its own. Embedded content from Google Maps, Wikipedia${yt ? ', YouTube' : ''} and the business website may set cookies under those providers' policies.</p><p>Questions: call ${esc(c.phone)} or visit <a href="${c.website}">${c.website}</a>.</p>`));
+
+// --- BatchGeo + Google Cloud Storage layer (the plumber's "second stack") ---
+if (c.batchgeo) {
+  const bg = c.batchgeo;
+  await mkdir(`stacks/dist/${c.slug}-batchgeo`, { recursive: true });
+  // one-row sheet to paste into batchgeo.com (tab-separated, header row first)
+  const cols = ['Name', 'Address', 'City', 'State', 'Zipcode', 'Phone', 'Website', 'Google Business Profile', 'Category'];
+  const row = [c.name, c.street, c.city, c.stateAbbr, c.zip, c.phone, c.website, cidUrl, `${c.keywords[4]}`];
+  await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-sheet.tsv`, cols.join('\t') + '\n' + row.join('\t') + '\n');
+  await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-title.txt`, bg.mapTitle + '\n');
+  await writeFile(`stacks/dist/${c.slug}-batchgeo/batchgeo-description.txt`, bg.description.join('\n\n') + '\n');
+  // GCS wrapper page: mirrors the reference (text line + BatchGeo iframe + full-screen link)
+  const mapUrl = bg.mapUrl || 'https://batchgeo.com/map/REPLACE_WITH_MAP_ID';
+  const wrapper = `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>${esc(bg.mapTitle)}</title></head><body>${esc(bg.mapTitle)}
+<p><iframe src="${mapUrl}" frameborder="0" width="100%" height="550" sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-modals allow-forms" allow="geolocation https://batchgeo.com" style="border:1px solid #aaa; position: relative;" scrolling="no"></iframe></p><p><small>View <a href="${mapUrl}">${esc(bg.mapTitle)}</a> in a full screen map</small></p></body></html>
+`;
+  await writeFile(`stacks/dist/${c.slug}-batchgeo/${c.gcs?.file || c.slug + '.html'}`, wrapper);
+}
 console.log('built', out);

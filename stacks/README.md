@@ -50,3 +50,15 @@ section keyword.
 - Kept from the reference on purpose: the intro and kw2 paragraphs sit inside `<h3>` (not valid HTML, but
   part of the template's heading weighting), styled back to body size.
 
+
+## Second stack: BatchGeo map wrapped in a Google Cloud Storage page
+The reference frames `storage.googleapis.com/<bucket>/<Business>.html` under its H4 (kw5). That file is a
+bare wrapper (one text line + a BatchGeo iframe + a "full screen map" link); the BatchGeo map carries the
+content: title = kw5 + business name, long description ending with the website URL, one pin with NAP and
+links to the website and GBP CID.
+
+`build.mjs` writes `stacks/dist/<slug>-batchgeo/`:
+- `batchgeo-sheet.tsv`: paste into batchgeo.com (one row: name, address, phone, website, GBP link)
+- `batchgeo-title.txt`, `batchgeo-description.txt`: paste into the map's title/description when saving
+- `<Business>.html`: the GCS wrapper. Set `batchgeo.mapUrl` and `gcs.bucket` in the config and rebuild;
+  `secondStackUrl` is then derived automatically and the kw5 iframe appears in `id.html`.
