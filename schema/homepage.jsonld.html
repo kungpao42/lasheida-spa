@@ -1,63 +1,93 @@
-<!-- lasheidaspa.com homepage schema. Replaces SEOPress Knowledge Graph (Organization),
-     SEOPress PRO Local Business (DaySpa) and SEOPress WebSite output.
+<!-- lasheidaspa.com homepage schema. Replaces SEOPress Knowledge Graph (Organization)
+     and SEOPress PRO Local Business (DaySpa). SEOPress keeps its own WebSite block.
      @id points to the @ID page, same pattern as priority1plumbing.com. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "DaySpa",
+  "@id": "https://bigstack.s3.amazonaws.com/lasheidaspa/id.html",
+  "name": "La Sheida Spa",
+  "alternateName": "LaSheida Spa",
+  "url": "https://lasheidaspa.com/",
+  "description": "Private day spa in Leesburg, Virginia, inside Salon Lofts at the Village at Leesburg, offering eyebrow threading, custom facials and waxing with licensed esthetician Sheida Jowkar.",
+  "image": "https://bigstack.s3.amazonaws.com/lasheidaspa/img/lasheidaspa-2026-11-22.jpg",
+  "logo": "https://lasheidaspa.com/wp-content/uploads/2022/01/output-onlinepngtools-13.png",
+  "telephone": "+15712180986",
+  "email": "ramin@lasheidaspa.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1601 Village Market Blvd SE, Suite 100",
+    "addressLocality": "Leesburg",
+    "addressRegion": "VA",
+    "postalCode": "20175",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.0902585,
+    "longitude": -77.5291345
+  },
+  "hasMap": "https://maps.google.com/maps?cid=15452416542071472731",
+  "areaServed": [
+    "Leesburg, VA",
+    "Ashburn, VA",
+    "Sterling, VA",
+    "Lansdowne, VA",
+    "Paeonian Springs, VA",
+    "Hamilton, VA",
+    "Purcellville, VA",
+    "Round Hill, VA"
+  ],
+  "openingHoursSpecification": [
     {
-      "@type": "WebSite",
-      "@id": "https://lasheidaspa.com/#website",
-      "name": "La Sheida Spa",
-      "alternateName": "LaSheida Spa",
-      "url": "https://lasheidaspa.com/",
-      "publisher": { "@id": "https://bigstack.s3.amazonaws.com/lasheidaspa/id.html" }
-    },
-    {
-      "@type": "DaySpa",
-      "@id": "https://bigstack.s3.amazonaws.com/lasheidaspa/id.html",
-      "name": "La Sheida Spa",
-      "alternateName": "LaSheida Spa",
-      "url": "https://lasheidaspa.com/",
-      "description": "Private day spa in Leesburg, Virginia, inside Salon Lofts at the Village at Leesburg, offering eyebrow threading, custom facials and waxing with licensed esthetician Sheida Jowkar.",
-      "image": "https://bigstack.s3.amazonaws.com/lasheidaspa/img/lasheidaspa-2026-11-22.jpg",
-      "logo": "https://lasheidaspa.com/wp-content/uploads/2022/01/output-onlinepngtools-13.png",
-      "telephone": "+15712180986",
-      "email": "ramin@lasheidaspa.com",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1601 Village Market Blvd SE, Suite 100",
-        "addressLocality": "Leesburg",
-        "addressRegion": "VA",
-        "postalCode": "20175",
-        "addressCountry": "US"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": 39.0902585, "longitude": -77.5291345 },
-      "hasMap": "https://maps.google.com/maps?cid=15452416542071472731",
-      "areaServed": ["Leesburg, VA", "Ashburn, VA", "Sterling, VA", "Lansdowne, VA", "Paeonian Springs, VA", "Hamilton, VA", "Purcellville, VA", "Round Hill, VA"],
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "10:00",
-        "closes": "17:30"
-      }],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Spa services",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Eyebrow threading", "url": "https://lasheidaspa.com/services/" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom facials", "url": "https://lasheidaspa.com/services/" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Waxing", "url": "https://lasheidaspa.com/services/" } }
-        ]
-      },
-      "sameAs": [
-        "https://www.facebook.com/LASHEIDASPA/",
-        "https://www.instagram.com/lasheidaspa/",
-        "https://www.tiktok.com/@lasheida",
-        "https://maps.google.com/maps?cid=15452416542071472731"
-      ]
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "10:00",
+      "closes": "17:30"
     }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Spa services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Eyebrow threading",
+          "url": "https://lasheidaspa.com/services/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom facials",
+          "url": "https://lasheidaspa.com/services/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Waxing",
+          "url": "https://lasheidaspa.com/services/"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.facebook.com/LASHEIDASPA/",
+    "https://www.instagram.com/lasheidaspa/",
+    "https://www.tiktok.com/@lasheida",
+    "https://maps.google.com/maps?cid=15452416542071472731"
   ]
 }
 </script>
